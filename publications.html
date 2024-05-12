@@ -1,0 +1,118 @@
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Year Directory</title>
+<style>
+  /* 样式可以根据你的需求自定义 */
+  .year-directory {
+    position: fixed;
+    bottom: 100px;
+    left: 150px;
+    font-family: 黑体;
+    font-style: italic;
+    font-size: 32px;
+    z-index: 1000;
+  }
+  .year-link {
+    display: block;
+    margin-bottom: 5px;
+    text-decoration: none;
+    color: #333;
+    position: relative;
+  }
+  .year-link.active {
+    font-weight: bold; /* 选中年份时增加字体加粗 */
+    font-size: 30px; /* 选中年份时增大字体大小 */
+  }
+
+/* 在 1080P 分辨率下调整年份目录的样式 */
+@media screen and (min-width: 1920px) and (max-width: 2559px) {
+    .year-directory {
+        font-size: 24px;
+        bottom: 60px;
+        left: 60px;
+    }
+    .year-link.active {
+    font-size: 26px; /* 选中年份时增大字体大小 */
+  }
+}
+
+/* 在 1440x900 分辨率下调整年份目录的样式 */
+@media screen and (min-width: 1440px) and (max-width: 1919px) {
+    .year-directory {
+        font-size: 20px;
+        bottom: 50px;
+        left: 50px;
+    }
+    .year-link.active {
+    font-size: 22px; /* 选中年份时增大字体大小 */
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="year-directory">
+ <a class="year-link" href="#" data-year="2024">2024</a><a class="year-link" href="#" data-year="2023">2023</a><a class="year-link" href="#" data-year="2022">2022</a><a class="year-link" href="#" data-year="2021">2021</a><a class="year-link" href="#" data-year="2020">Before 2020</a></div>
+<p><script>
+document.addEventListener('DOMContentLoaded', function() {
+  var yearLinks = document.querySelectorAll('.year-link');
+
+  // 点击年份链接时的事件处理函数
+  function handleYearLinkClick(event) {
+    event.preventDefault();
+
+    // 移除之前的 active 类名
+    document.querySelectorAll('.year-link').forEach(function(el) {
+      el.classList.remove('active');
+    });
+
+    var year = this.getAttribute('data-year');
+    var element = document.getElementById('year-' + year);
+
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      this.classList.add('active'); // 添加 active 类名
+    }
+  }
+
+  // 为每个年份链接添加点击事件处理函数
+  yearLinks.forEach(function(link) {
+    link.addEventListener('click', handleYearLinkClick);
+  });
+
+  // 监听页面滚动事件
+  var scrollTimer;
+
+  window.addEventListener('scroll', function() {
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(function() {
+      var scrollPosition = window.scrollY;
+
+      yearLinks.forEach(function(link) {
+        var year = link.getAttribute('data-year');
+        var element = document.getElementById('year-' + year);
+
+        if (element) {
+          var elementTop = element.getBoundingClientRect().top + window.scrollY;
+
+          if (scrollPosition >= elementTop) {
+            // 移除之前的 active 类名
+            document.querySelectorAll('.year-link').forEach(function(el) {
+              el.classList.remove('active');
+            });
+
+            // 添加 active 类名
+            link.classList.add('active');
+          }
+        }
+      });
+    }, 200); // 设置一个适当的延迟时间
+  });
+
+  // 页面加载完成时初始化一次
+  window.dispatchEvent(new Event('scroll'));
+});
+
+
+</script></p>
