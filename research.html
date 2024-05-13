@@ -1,0 +1,70 @@
+<div class="image-container"><img src="http://18.119.58.170/wp-content/uploads/2024/05/research.png" alt="YU's Smart Battery Lab" usemap="#batteryMap" /></div>
+<style>
+.image-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+}
+</style> <map name="batteryMap"> <area alt="Li/Na/Mg-Metal Batteries" coords="219,140, 507,111, 208,242, 491,195" shape="poly" href="#liNaMgMetalBatteries" /> <area alt="Metal-Sulfur Batteries" coords="612,146, 555,234, 630,384, 748,331" shape="poly" href="#metalSulfurBatteries" /> <area alt="Solid-State Electrolytes" coords="507,553, 663,430, 723,522, 566,656" shape="poly" href="#solidStateElectrolytes" /> <area alt="Spent Battery Recycling" coords="243,507, 448,643, 378,714, 211,626" shape="poly" href="#spentBatteryRecycling" /> <area alt="Battery Health Monitoring" coords="162,250, 263,264, 189,527, 104,476" shape="poly" href="#batteryHealthMonitoring" /> </map>
+
+&nbsp;
+<div class="container">
+<div id="liNaMgMetalBatteries" class="section">
+<h4>Li/Na/Mg-Metal Batteries</h4>
+Li-metal batteries are promising next-generation energy storage systems with maximized energy density. Na and Mg-metal batteries are typical beyond-Li battery technologies with lower production costs. Our research focuses on formulating functional electrolytes for highly reversible Li/Na/Mg-metal batteries, including those operating at extremely high/low temperatures, high working voltages, and in (quasi) solid-state electrolytes.
+
+&nbsp;
+
+</div>
+</div>
+&nbsp;
+<div class="container">
+<div id="metalSulfurBatteries" class="section">
+<h4>Metal-Sulfur Batteries</h4>
+Elemental sulfur is characterized by its significant capacity in both gravimetric and volumetric terms. When integrated with alkali metal anodes, the development of rechargeable metal-sulfur batteries stands out as one of the most important next-generation battery technologies. Our research focuses on advanced electrode materials design, electrolyte formulation, and separator engineering to improve the reversible capacity, energy efficiency, and cycling stability of metal-sulfur batteries.
+
+</div>
+&nbsp;
+<div id="solidStateElectrolytes" class="section">
+<h4>Solid-State Electrolytes</h4>
+Solid-state Li/Na batteries are considered as next-generation devices for energy storage due to their advantages in safety and potentially high energy density. As the key component in ASSLBs, Solid-state electrolytes (SSEs) with non-flammability and good adaptability to metal anodes are regarded as the key component in solid-state batteries. Our research focuses on the design of multi-component nanoscale interfaces, the minimization of surface coating thicknesses, and the understanding of Li-ion transport in the bulk and the interface of solid-state electrolytes through advanced characterization techniques.
+
+&nbsp;
+
+</div>
+&nbsp;
+<div id="spentBatteryRecycling" class="section">
+<h4>Spent Battery Recycling</h4>
+Spent Li/Na batteries containing heavy metals and toxic hazardous are becoming a severe threat to the environment and human health which must be addressed properly. Recycling is an option for end-of-life Li/Na batteries, which not only prevents the pollution of toxic components but also saves natural sources. Our research focuses on developing new processes for materials recovery from spent batteries with high leaching efficiency.
+
+&nbsp;
+
+</div>
+&nbsp;
+<div id="batteryHealthMonitoring" class="section">
+<h4>Battery Health Monitoring</h4>
+Although rechargeable Li/Na batteries are found in a wide array of applications, from mobile phones to commercial airliners, the continued expansion of these batteries is hindered by safety, durability and reliability concerns. Our research focuses on detecting battery failures earlier and faster.
+
+&nbsp;
+
+</div>
+<script>
+  document.querySelectorAll('area').forEach(area => {
+    area.addEventListener('click', function(event) {
+        event.preventDefault(); // 阻止默认的链接跳转行为
+        const targetId = this.getAttribute('href').substring(1); // 获取href属性值并去除前面的#
+        const target = document.getElementById(targetId); // 使用ID选择器获取对应的元素
+
+        if (target) {
+            window.scrollTo({
+                top: target.offsetTop, // 计算元素的顶部相对于页面顶部的偏移
+                behavior: 'smooth' // 平滑滚动
+            });
+        }
+    });
+});
+</script>
+
+</div>
